@@ -1,0 +1,251 @@
+
+;; ===========================< Loadout >=============================
+;; To add items in the item lists:
+;; -------------------------------
+;; add a new line: "item_section			= value_1,value_2,value3" under the correct section below
+;; "item_section": is the section name of the your item
+;; "value_1": (boolean  value, must be true or false) determines wether this item should be added to player's inventory list (false) or to the loadout pick list (true)
+;; "value_2": (number) the amount of the said item
+;; "value_3": (number) how many points it requires
+;; ========================================================
+;; put your custom items under "custom" section, they will always appear to pick from
+
+
+[points]
+total_points = 1000
+
+
+[custom]
+itm_actor_backpack		= true,1,0
+itm_backpack			= true,1,0
+
+	
+[modded]
+equ_small_pack			= true,1,100
+
+
+[shared]:custom
+device_torch 			= false,1,0
+wpn_binoc 				= false,1,0
+wpn_knife 				= false,1,0
+detector_simple			= true,1,250
+itm_gunsmith_toolkit	= true,1,200
+itm_sleepbag			= true,1,50
+medkit 					= true,2,50
+bandage					= true,3,20
+antirad					= true,2,75
+bread					= true,2,40
+kolbasa					= true,2,50
+conserva 				= true,2,60
+energy_drink			= true,2,40
+energy_drink1			= true,2,60
+mineral_water			= true,3,40
+flyaga					= true,2,50
+flyaga1					= true,2,60
+snickers				= true,2,20
+vodka 					= true,2,50
+
+[stalker_loadout]:shared,modded
+novice_outfit 			= false,1,0
+wpn_pm					= true,1,250
+wpn_hpsa				= true,1,350
+wpn_bm16				= true,1,400
+wpn_bm16_full			= true,1,450
+wpn_mp43				= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_toz34				= true,1,500
+wpn_sks 				= true,1,600
+wpn_ak74u 				= true,1,650
+wpn_vpo101 				= true,1,900
+wpn_mosin 				= true,1,850
+
+[bandit_loadout]:shared,modded
+bandit_novice_outfit 	= false,1,0
+wpn_pm					= true,1,250
+wpn_tt33				= true,1,300
+wpn_bm16				= true,1,400
+wpn_bm16_full			= true,1,450
+wpn_mp43				= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_toz34				= true,1,500
+wpn_ak74u 				= true,1,650
+wpn_mosin 				= true,1,850
+grenade_rgd5			= true,1,80
+
+[ecolog_loadout]:shared,modded
+ecolog_guard_outfit 	= false,1,0
+drug_anabiotic			= true,1,100
+detector_advanced		= true,1,500
+wpn_pm					= true,1,250
+wpn_hpsa				= true,1,350
+wpn_bm16_full			= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_toz34				= true,1,500
+wpn_bizon 				= true,1,500
+wpn_vityaz 				= true,1,550
+wpn_sks 				= true,1,600
+wpn_mp133				= true,1,600
+wpn_ak74u 				= true,1,650
+wpn_m700 				= true,1,850
+medkit_scientic			= true,2,70
+
+[dolg_loadout]:shared,modded
+dolg_novice_outfit 		= false,1,0
+wpn_pm					= true,1,250
+wpn_tt33				= true,1,300
+wpn_bm16_full			= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_mp133				= true,1,600
+wpn_bizon 				= true,1,500
+wpn_vityaz 				= true,1,550
+wpn_sks 				= true,1,600
+wpn_ak74u 				= true,1,650
+wpn_ak74 				= true,1,700
+wpn_ak103 				= true,1,750
+wpn_rpk74 				= true,1,750
+wpn_mp153				= true,1,850
+grenade_rgd5			= true,1,80
+grenade_f1				= true,1,150
+medkit_army				= true,2,80
+
+[freedom_loadout]:shared,modded
+svoboda_novice_outfit 	= false,1,0
+drug_anabiotic			= true,1,100
+wpn_pm					= true,1,250
+wpn_hpsa				= true,1,350
+wpn_colt1911			= true,1,400
+wpn_bm16_full			= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_mp133				= true,1,600
+wpn_vityaz 				= true,1,550
+wpn_sks 				= true,1,600
+wpn_mp5					= true,1,625
+wpn_ak74u 				= true,1,650
+wpn_ak74 				= true,1,700
+wpn_sig550 				= true,1,750
+wpn_dvl_10 				= true,1,900
+grenade_rgd5			= true,1,80
+medkit_scientic			= true,2,70
+
+[killer_loadout]:shared,modded
+merc_outfit 			= false,1,0
+wpn_pm					= true,1,250
+wpn_tt33				= true,1,300
+wpn_hpsa				= true,1,350
+wpn_colt1911			= true,1,400
+wpn_bm16_full			= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_toz34				= true,1,500
+wpn_mp133				= true,1,600
+wpn_bizon 				= true,1,500
+wpn_vityaz 				= true,1,550
+wpn_sks 				= true,1,600
+wpn_mp5					= true,1,625
+wpn_ak74u 				= true,1,650
+wpn_ak74 				= true,1,700
+wpn_ak103 				= true,1,750
+wpn_sig550 				= true,1,750
+wpn_galil 				= true,1,800
+wpn_lr300 				= true,1,850
+grenade_rgd5			= true,1,80
+grenade_f1				= true,1,150
+medkit_army				= true,2,80
+
+[army_loadout]:shared,modded
+army_outfit 			= false,1,0
+drug_anabiotic			= true,1,100
+wpn_pm					= true,1,250
+wpn_tt33				= true,1,300
+wpn_hpsa				= true,1,350
+wpn_colt1911			= true,1,400
+wpn_bm16_full			= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_toz34				= true,1,500
+wpn_mp133				= true,1,600
+wpn_bizon 				= true,1,500
+wpn_vityaz 				= true,1,550
+wpn_sks 				= true,1,600
+wpn_ak74u 				= true,1,650
+wpn_ak74 				= true,1,700
+wpn_ak103 				= true,1,750
+wpn_rpk74 				= true,1,750
+wpn_rpk74m 				= true,1,850
+grenade_rgd5			= true,1,80
+grenade_f1				= true,1,150
+medkit_army				= true,2,80
+
+[monolith_loadout]:shared,modded
+monolith_outfit 		= false,1,0
+drug_anabiotic			= true,1,100
+wpn_pm					= true,1,250
+wpn_tt33				= true,1,300
+wpn_hpsa				= true,1,350
+wpn_colt1911			= true,1,400
+wpn_bm16_full			= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_toz34				= true,1,500
+wpn_mp133				= true,1,600
+wpn_bizon 				= true,1,500
+wpn_vityaz 				= true,1,550
+wpn_sks 				= true,1,600
+wpn_mp5					= true,1,625
+wpn_ak74u 				= true,1,650
+wpn_ak74 				= true,1,700
+wpn_ak103 				= true,1,750
+wpn_sig550 				= true,1,750
+wpn_galil31 			= true,1,825
+wpn_sa58 				= true,1,900
+grenade_rgd5			= true,1,80
+grenade_f1				= true,1,150
+medkit_scientic			= true,2,70
+medkit_army				= true,2,80
+
+[csky_loadout]:shared,modded
+cs_novice_outfit 		= false,1,0
+detector_advanced		= true,1,500
+wpn_pm					= true,1,250
+wpn_hpsa				= true,1,350
+wpn_bm16				= true,1,400
+wpn_bm16_full			= true,1,450
+wpn_mp43				= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_mp133				= true,1,600
+wpn_toz34				= true,1,500
+wpn_ak74u 				= true,1,650
+wpn_mosin 				= true,1,850
+medkit_scientic			= true,2,70
+
+[zombied_loadout]:shared,stalker_loadout,modded
+
+
+
+;; ===========================< Money >=============================
+[stalker_money]
+money = 1000
+
+[bandit_money]
+money = 1000
+
+[ecolog_money]
+money = 1600
+
+[dolg_money]
+money = 1400
+
+[freedom_money]
+money = 1400
+
+[killer_money]
+money = 2000
+
+[army_money]
+money = 1200
+
+[monolith_money]
+money = 1600
+
+[csky_money]
+money = 1400
+
+[zombied_money]
+money = 1000
