@@ -23,6 +23,10 @@ itm_backpack			= true,1,0
 [modded]
 equ_small_pack			= true,1,100
 
+[shared_loadout]:
+wpn_pm					= true,1,250
+grenade_rgd5			= true,1,80
+
 
 [shared]:custom
 device_torch 			= false,1,0
@@ -48,33 +52,9 @@ snickers				= true,2,20
 vodka 					= true,2,50
 helm_respirator_half	= true,1,200
 
-[stalker_loadout]:shared,modded
+[stalker_loadout]:shared,modded,shared_loadout
 novice_outfit 			= false,1,0
-wpn_pm					= true,1,250
 wpn_fort				= true,1,300
-wpn_hpsa				= true,1,300
-wpn_bm16				= true,1,400
-wpn_bm16_full			= true,1,450
-wpn_mp43				= true,1,450
-wpn_mp43_full			= true,1,500
-wpn_toz34				= true,1,500
-; wpn_sks 				= true,1,600
-; wpn_ak74u 				= true,1,650
-; wpn_vpo101 				= true,1,900
-; wpn_mosin 				= true,1,850
-grenade_rgd5			= true,1,80
-
-; ammo_9x18_fmj 			= true,3,50
-; ammo_9x19_fmj 			= true,3,55
-; ammo_12x70_buck 		= true,3,60
-; ammo_5.45x39_fmj 		= true,2,70
-; ammo_7.62x39_fmj 		= true,2,80
-; ammo_7.62x51_fmj 		= true,2,90
-; ammo_7.62x54_7h1 		= true,2,100
-
-[bandit_loadout]:shared,modded
-bandit_novice_outfit 	= false,1,0
-wpn_pm					= true,1,250
 wpn_hpsa				= true,1,300
 wpn_tt33				= true,1,350
 wpn_bm16				= true,1,400
@@ -82,225 +62,159 @@ wpn_bm16_full			= true,1,450
 wpn_mp43				= true,1,450
 wpn_mp43_full			= true,1,500
 wpn_toz34				= true,1,500
-; wpn_ak74u 				= true,1,650
-; wpn_mosin 				= true,1,850
-grenade_rgd5			= true,1,80
+wpn_b725				= true,1,600
+wpn_sks 				= true,1,600
+wpn_ak74u 				= true,1,650
+wpn_mosin 				= true,1,800
 
-; ammo_9x18_fmj 			= true,3,50
-; ammo_7.62x25 			= true,3,60
-; ammo_12x70_buck 		= true,3,60
-; ammo_5.45x39_fmj 		= true,2,70
-; ammo_7.62x54_7h1 		= true,2,100
+[bandit_loadout]:shared,modded,shared_loadout
+bandit_novice_outfit 	= false,1,0
+wpn_hpsa				= true,1,300
+wpn_tt33				= true,1,350
+wpn_bm16				= true,1,400
+wpn_bm16_full			= true,1,450
+wpn_mp43				= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_toz34				= true,1,500
+wpn_ak74u 				= true,1,650
+wpn_bizon 				= true,1,500
 
-[ecolog_loadout]:shared,modded
+[ecolog_loadout]:shared,modded,shared_loadout
 ecolog_guard_outfit 	= false,1,0
 drug_anabiotic			= true,1,100
 detector_advanced		= true,1,500
-wpn_pm					= true,1,250
-wpn_hpsa				= true,1,300
-; wpn_bm16_full			= true,1,450
-; wpn_mp43_full			= true,1,500
-; wpn_toz34				= true,1,500
-wpn_bizon 				= true,1,500
-wpn_vityaz 				= true,1,550
-wpn_sks 				= true,1,600
-wpn_mp133				= true,1,600
-wpn_mts255				= true,1,600
-wpn_ak74u 				= true,1,650
-; wpn_m700 				= true,1,850
-medkit_scientic			= true,2,70
-grenade_rgd5			= true,1,80
-
-; ammo_9x18_fmj 			= true,3,50
-; ammo_9x19_fmj 			= true,3,55
-; ammo_12x70_buck 		= true,3,60
-; ammo_5.45x39_fmj 		= true,2,70
-; ammo_7.62x39_fmj 		= true,2,80
-; ammo_7.62x51_fmj 		= true,2,90
-
-[dolg_loadout]:shared,modded
-dolg_novice_outfit 		= false,1,0
-wpn_pm					= true,1,250
-wpn_fort				= true,1,300
-; wpn_tt33				= true,1,350
-wpn_bm16_full			= true,1,450
-wpn_mp43_full			= true,1,500
-; wpn_mp133				= true,1,600
-wpn_mts255				= true,1,600
-wpn_bizon 				= true,1,500
-wpn_vityaz 				= true,1,550
-wpn_sks 				= true,1,600
-wpn_ak74u 				= true,1,650
-; wpn_ak74 				= true,1,700
-; wpn_ak103 				= true,1,750
-; wpn_rpk74 				= true,1,750
-; wpn_mp153				= true,1,850
-grenade_rgd5			= true,1,80
-grenade_f1				= true,1,150
-medkit_army				= true,2,80
-bandage_army			= true,2,50
-
-; ammo_9x18_fmj 			= true,3,50
-; ammo_9x19_fmj 			= true,3,55
-; ammo_7.62x25 			= true,3,60
-; ammo_12x70_buck 		= true,3,60
-; ammo_5.45x39_fmj 		= true,2,70
-; ammo_7.62x39_fmj 		= true,2,80
-
-[freedom_loadout]:shared,modded
-svoboda_novice_outfit 	= false,1,0
-drug_anabiotic			= true,1,100
-wpn_pm					= true,1,250
-wpn_fort				= true,1,300
-wpn_hpsa				= true,1,300
-; wpn_colt1911			= true,1,400
-wpn_bm16_full			= true,1,450
-wpn_mp43_full			= true,1,500
-wpn_mts255				= true,1,600
-wpn_vityaz 				= true,1,550
-wpn_sks 				= true,1,600
-; wpn_mp5					= true,1,625
-; wpn_ak74u 				= true,1,650
-; wpn_ak74 				= true,1,700
-; wpn_sig550 				= true,1,750
-; wpn_dvl_10 				= true,1,900
-grenade_rgd5			= true,1,80
-medkit_scientic			= true,2,70
-
-; ammo_9x18_fmj 			= true,3,50
-; ammo_9x19_fmj 			= true,3,55
-; ammo_12x70_buck 		= true,3,60
-; ammo_11.43x23_fmj 		= true,2,65
-; ammo_5.45x39_fmj 		= true,2,70
-; ammo_5.56x45_ss190 		= true,2,70
-; ammo_7.62x39_fmj 		= true,2,80
-; ammo_7.62x51_fmj 		= true,2,90
-
-[killer_loadout]:shared,modded
-merc_outfit 			= false,1,0
-wpn_pm					= true,1,250
-wpn_hpsa				= true,1,300
-wpn_beretta				= true,1,350
-; wpn_colt1911			= true,1,400
-wpn_bm16_full			= true,1,450
-wpn_mp43_full			= true,1,500
-wpn_toz34				= true,1,500
-wpn_mts255				= true,1,600
-wpn_bizon 				= true,1,500
-wpn_vityaz 				= true,1,550
-wpn_sks 				= true,1,600
-; wpn_mp5					= true,1,625
-wpn_ak74u 				= true,1,650
-; wpn_ak74 				= true,1,700
-; wpn_ak103 				= true,1,750
-; wpn_sig550 				= true,1,750
-; wpn_galil 				= true,1,800
-; wpn_lr300 				= true,1,850
-grenade_rgd5			= true,1,80
-grenade_f1				= true,1,150
-medkit_army				= true,2,80
-bandage_army			= true,2,50
-
-; ammo_9x18_fmj 			= true,3,50
-; ammo_9x19_fmj 			= true,3,55
-; ammo_7.62x25 			= true,3,60
-; ammo_12x70_buck 		= true,3,60
-; ammo_11.43x23_fmj 		= true,2,65
-; ammo_5.45x39_fmj 		= true,2,70
-; ammo_5.56x45_ss190 		= true,2,70
-; ammo_7.62x39_fmj 		= true,2,80
-
-[army_loadout]:shared,modded
-army_outfit 			= false,1,0
-drug_anabiotic			= true,1,100
-wpn_pm					= true,1,250
-wpn_pb					= true,1,280
-wpn_fort				= true,1,300
-; wpn_hpsa				= true,1,300
-; wpn_bm16_full			= true,1,450
-; wpn_mp43_full			= true,1,500
-; wpn_toz34				= true,1,500
-wpn_mp133				= true,1,600
-wpn_mts255				= true,1,600
-wpn_bizon 				= true,1,500
-wpn_vityaz 				= true,1,550
-wpn_sks 				= true,1,600
-wpn_ak74u 				= true,1,650
-; wpn_ak74 				= true,1,700
-; wpn_ak103 				= true,1,750
-; wpn_rpk74 				= true,1,750
-; wpn_rpk74m 				= true,1,850
-grenade_rgd5			= true,1,80
-grenade_f1				= true,1,150
-medkit_army				= true,2,80
-bandage_army			= true,2,50
-
-; ammo_9x18_fmj 			= true,3,50
-; ammo_9x19_fmj 			= true,3,55
-; ammo_7.62x25 			= true,3,60
-; ammo_12x70_buck 		= true,3,60
-; ammo_5.45x39_fmj 		= true,2,70
-; ammo_7.62x39_fmj 		= true,2,80
-
-[monolith_loadout]:shared,modded
-monolith_outfit 		= false,1,0
-drug_anabiotic			= true,1,100
-wpn_pm					= true,1,250
-wpn_tt33				= true,1,350
-wpn_hpsa				= true,1,300
-; wpn_colt1911			= true,1,400
-wpn_bm16_full			= true,1,450
-wpn_mp43_full			= true,1,500
-wpn_toz34				= true,1,500
-wpn_mp133				= true,1,600
-wpn_mts255				= true,1,600
-wpn_bizon 				= true,1,500
-wpn_vityaz 				= true,1,550
-wpn_sks 				= true,1,600
-; wpn_mp5					= true,1,625
-wpn_ak74u 				= true,1,650
-; wpn_ak74 				= true,1,700
-; wpn_ak103 				= true,1,750
-; wpn_sig550 				= true,1,750
-; wpn_galil31 			= true,1,825
-; wpn_sa58 				= true,1,900
-grenade_rgd5			= true,1,80
-grenade_f1				= true,1,150
-medkit_scientic			= true,2,70
-medkit_army				= true,2,80
-bandage_army			= true,2,50
-
-; ammo_9x18_fmj 			= true,3,50
-; ammo_9x19_fmj 			= true,3,55
-; ammo_12x70_buck 		= true,3,60
-; ammo_7.62x25 			= true,3,60
-; ammo_11.43x23_fmj 		= true,2,65
-; ammo_5.45x39_fmj 		= true,2,70
-; ammo_5.56x45_ss190 		= true,2,70
-; ammo_7.62x39_fmj 		= true,2,80
-; ammo_7.62x51_fmj 		= true,2,90
-
-[csky_loadout]:shared,modded
-cs_novice_outfit 		= false,1,0
-detector_advanced		= true,1,500
-wpn_pm					= true,1,250
 wpn_hpsa				= true,1,300
 wpn_bm16				= true,1,400
 wpn_bm16_full			= true,1,450
 wpn_mp43				= true,1,450
 wpn_mp43_full			= true,1,500
-; wpn_mp133				= true,1,600
-wpn_toz34				= true,1,500
+wpn_bizon 				= true,1,500
+wpn_vityaz 				= true,1,550
+wpn_sks 				= true,1,600
+wpn_mp133				= true,1,600
+wpn_mts255				= true,1,600
 wpn_ak74u 				= true,1,650
-; wpn_mosin 				= true,1,850
 medkit_scientic			= true,2,70
-grenade_rgd5			= true,1,80
 
-; ammo_9x18_fmj 			= true,3,50
-; ammo_9x19_fmj 			= true,3,55
-; ammo_12x70_buck 		= true,3,60
-; ammo_5.45x39_fmj 		= true,2,70
-; ammo_7.62x54_7h1 		= true,2,100
+[dolg_loadout]:shared,modded,shared_loadout
+dolg_novice_outfit 		= false,1,0
+wpn_fort				= true,1,300
+wpn_tt33				= true,1,350
+wpn_bm16_full			= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_mp133				= true,1,600
+wpn_mts255				= true,1,600
+wpn_bizon 				= true,1,500
+wpn_vityaz 				= true,1,550
+wpn_sks 				= true,1,600
+wpn_ak74u 				= true,1,650
+wpn_ak74 				= true,1,700
+wpn_ak103 				= true,1,750
+wpn_rpk74 				= true,1,750
+grenade_f1				= true,1,150
+medkit_army				= true,2,80
+bandage_army			= true,2,50
+
+[freedom_loadout]:shared,modded,shared_loadout
+svoboda_novice_outfit 	= false,1,0
+drug_anabiotic			= true,1,100
+wpn_fort				= true,1,300
+wpn_hpsa				= true,1,300
+wpn_colt1911			= true,1,400
+wpn_bm16_full			= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_mts255				= true,1,600
+wpn_vityaz 				= true,1,550
+wpn_sks 				= true,1,600
+wpn_mp5					= true,1,625
+wpn_ak74 				= true,1,700
+wpn_sig550 				= true,1,750
+wpn_vpo101 				= true,1,850
+medkit_scientic			= true,2,70
+
+[killer_loadout]:shared,modded,shared_loadout
+merc_outfit 			= false,1,0
+wpn_glock				= true,1,350
+wpn_beretta				= true,1,350
+wpn_colt1911			= true,1,400
+wpn_bm16_full			= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_toz34				= true,1,500
+wpn_mts255				= true,1,600
+wpn_bizon 				= true,1,500
+wpn_vityaz 				= true,1,550
+wpn_sks 				= true,1,600
+wpn_mp5					= true,1,600
+wpn_vector 				= true,1,750
+wpn_sig550 				= true,1,750
+wpn_galil 				= true,1,800
+wpn_lr300 				= true,1,800
+grenade_f1				= true,1,150
+medkit_army				= true,2,80
+bandage_army			= true,2,50
+
+[army_loadout]:shared,modded,shared_loadout
+army_outfit 			= false,1,0
+drug_anabiotic			= true,1,100
+wpn_pb					= true,1,280
+wpn_fort				= true,1,300
+wpn_tt33				= true,1,350
+wpn_mp133				= true,1,600
+wpn_mts255				= true,1,600
+wpn_mp153				= true,1,700
+wpn_bizon 				= true,1,500
+wpn_vityaz 				= true,1,550
+wpn_sks 				= true,1,600
+wpn_ak74u 				= true,1,650
+wpn_ak74 				= true,1,700
+wpn_ak103 				= true,1,750
+wpn_rpk74 				= true,1,750
+wpn_rpk74m 				= true,1,800
+wpn_galil31 			= true,1,800
+grenade_f1				= true,1,150
+medkit_army				= true,2,80
+bandage_army			= true,2,50
+
+[monolith_loadout]:shared,modded,shared_loadout
+monolith_outfit 		= false,1,0
+drug_anabiotic			= true,1,100
+wpn_tt33				= true,1,350
+wpn_hpsa				= true,1,300
+wpn_colt1911			= true,1,400
+wpn_bm16_full			= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_toz34				= true,1,500
+wpn_mp133				= true,1,600
+wpn_mts255				= true,1,600
+wpn_bizon 				= true,1,500
+wpn_vityaz 				= true,1,550
+wpn_sks 				= true,1,600
+wpn_mp5					= true,1,625
+wpn_ak74u 				= true,1,650
+wpn_ak74 				= true,1,700
+wpn_ak103 				= true,1,750
+wpn_sig550 				= true,1,750
+wpn_galil31 			= true,1,800
+wpn_sa58 				= true,1,900
+grenade_f1				= true,1,150
+medkit_scientic			= true,2,70
+medkit_army				= true,2,80
+bandage_army			= true,2,50
+
+[csky_loadout]:shared,modded,shared_loadout
+cs_novice_outfit 		= false,1,0
+detector_advanced		= true,1,500
+wpn_hpsa				= true,1,300
+wpn_bm16				= true,1,400
+wpn_bm16_full			= true,1,450
+wpn_mp43				= true,1,450
+wpn_mp43_full			= true,1,500
+wpn_toz34				= true,1,500
+wpn_mp133				= true,1,600
+wpn_sks 				= true,1,600
+wpn_ak74u 				= true,1,650
+wpn_mosin 				= true,1,800
+medkit_scientic			= true,2,70
 
 [zombied_loadout]:shared,stalker_loadout,modded
 
