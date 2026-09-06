@@ -1,3 +1,6 @@
+#include "outfit_backpack_upgrades\b_small_pack_up.ltx"
+#include "outfit_backpack_upgrades\b_backpack_up.ltx"
+
 [equ_backpack]
 GroupControlSection                      = spawn_group
 discovery_dependency                     =
@@ -17,8 +20,8 @@ inv_grid_y                               = 39
 cost                                     = 15000
 highlight_equipped 						 = true
 slot                                     = 12
-additional_inventory_weight				 = 20 ;10
-additional_inventory_weight2			 = 20 ;10
+additional_inventory_weight				 = 10
+additional_inventory_weight2			 = 10
 use_condition							 = false
 can_stack 								 = true
 default_to_ruck                          = false
@@ -30,8 +33,8 @@ power_loss								 = 0.04 ;NEW FORMULA BELOW
 ;use1_functor                             = actor_backpack.query_create_stash
 ;use1_action_functor                      = actor_backpack.action_create_stash
 
-upgrades								 = ;up_gr_firstab_backpack			; * Dear modders, backpacks can have upgrades *
-upgrade_scheme							 = ;upgrade_scheme_backpack
+upgrades								 = up_gr_firstab_backpack			; * Dear modders, backpacks can have upgrades *
+upgrade_scheme							 = upgrade_scheme_backpack
 
 [sect_backpack_immunities]
 burn_immunity                            = 0.0
@@ -56,9 +59,13 @@ inv_grid_height                          = 2
 inv_grid_x                               = 34
 inv_grid_y                               = 37
 cost                                     = 7000
-additional_inventory_weight				 = 10 ;5
-additional_inventory_weight2			 = 10 ;5
+additional_inventory_weight				 = 5
+additional_inventory_weight2			 = 5
 power_loss								 = 0.02
+
+upgrades								 = up_gr_firstab_smallbackpack
+upgrade_scheme							 = upgrade_scheme_smallbackpack
+
 
 [equ_military_pack]:equ_backpack
 visual                                   = dynamics\devices\dev_rukzak\dev_drawbridge.ogf
@@ -71,8 +78,8 @@ inv_grid_height                          = 2
 inv_grid_x                               = 36
 inv_grid_y                               = 37
 cost                                     = 25000
-additional_inventory_weight				 = 30 ;15
-additional_inventory_weight2			 = 30 ;15
+additional_inventory_weight				 = 15
+additional_inventory_weight2			 = 15
 power_loss								 = 0.05
 
 [equ_tourist_pack]:equ_backpack
@@ -86,6 +93,6 @@ inv_grid_height                          = 2
 inv_grid_x                               = 36
 inv_grid_y                               = 39
 cost                                     = 35000
-additional_inventory_weight				 = 40 ;20
-additional_inventory_weight2			 = 40 ;20
+additional_inventory_weight				 = 20
+additional_inventory_weight2			 = 20
 power_loss								 = 0.08
