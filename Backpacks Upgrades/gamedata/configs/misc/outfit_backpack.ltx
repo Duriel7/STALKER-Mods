@@ -1,5 +1,7 @@
 #include "outfit_backpack_upgrades\b_small_pack_up.ltx"
 #include "outfit_backpack_upgrades\b_backpack_up.ltx"
+#include "outfit_backpack_upgrades\b_military_pack_up.ltx"
+#include "outfit_backpack_upgrades\b_tourist_pack_up.ltx"
 
 [equ_backpack]
 GroupControlSection                      = spawn_group
@@ -28,12 +30,12 @@ default_to_ruck                          = false
 sprint_allowed							 = true
 immunities_sect                          = sect_backpack_immunities
 control_inertion_factor					 = 1.0
-power_loss								 = 0.04 ;NEW FORMULA BELOW
+power_loss								 = 0.08 ;NEW FORMULA BELOW
 ; power restore (0.0 base) * (0.5 + outfit power loss + helmet power loss + backpack power loss)
 ;use1_functor                             = actor_backpack.query_create_stash
 ;use1_action_functor                      = actor_backpack.action_create_stash
 
-upgrades								 = up_gr_firstab_backpack			; * Dear modders, backpacks can have upgrades *
+upgrades								 = up_gr_firstab_backpack, up_gr_seconab_backpack			; * Dear modders, backpacks can have upgrades *
 upgrade_scheme							 = upgrade_scheme_backpack
 
 [sect_backpack_immunities]
@@ -61,7 +63,7 @@ inv_grid_y                               = 37
 cost                                     = 7000
 additional_inventory_weight				 = 5
 additional_inventory_weight2			 = 5
-power_loss								 = 0.02
+power_loss								 = 0.03
 
 upgrades								 = up_gr_firstab_smallbackpack
 upgrade_scheme							 = upgrade_scheme_smallbackpack
@@ -80,7 +82,9 @@ inv_grid_y                               = 37
 cost                                     = 25000
 additional_inventory_weight				 = 15
 additional_inventory_weight2			 = 15
-power_loss								 = 0.05
+power_loss								 = 0.1
+
+upgrades								 = up_gr_firstab_militarybackpack, up_gr_seconab_militarybackpack
 
 [equ_tourist_pack]:equ_backpack
 visual                                   = dynamics\devices\dev_rukzak\dev_d1zip.ogf
@@ -95,4 +99,6 @@ inv_grid_y                               = 39
 cost                                     = 35000
 additional_inventory_weight				 = 20
 additional_inventory_weight2			 = 20
-power_loss								 = 0.08
+power_loss								 = 0.16
+
+upgrades								 = up_gr_firstab_touristbackpack, up_gr_seconab_touristbackpack

@@ -73,21 +73,24 @@
 	            <cell x="0" y="24" point_x="140" point_y="225"/>
 	        </column>
 	        <column>
-	            <cell x="100" y="24" point_x="160" point_y="250"/>
+	            <cell x="100" y="24" point_x="140" point_y="225"/>
 	        </column>
 	        <column>
-	            <cell x="200" y="24" point_x="160" point_y="225"/>
+	            <cell x="200" y="24" point_x="140" point_y="225"/>
 	        </column>
 	    </template>
 	    <template name="upgrade_scheme_backpack">
 	        <column>
 	            <cell x="0" y="24" point_x="140" point_y="225"/>
+	            <cell x="0" y="126" point_x="160" point_y="250"/>
 	        </column>
 	        <column>
-	            <cell x="100" y="24" point_x="160" point_y="250"/>
+	            <cell x="10" y="24" point_x="140" point_y="225"/>
+	            <cell x="100" y="126" point_x="160" point_y="250"/>
 	        </column>
 	        <column>
-	            <cell x="200" y="24" point_x="160" point_y="225"/>
+	            <cell x="200" y="24" point_x="140" point_y="225"/>
+	            <cell x="200" y="126" point_x="160" point_y="250"/>
 	        </column>
 	    </template>
 <!-- outfit upgrade schemes -->

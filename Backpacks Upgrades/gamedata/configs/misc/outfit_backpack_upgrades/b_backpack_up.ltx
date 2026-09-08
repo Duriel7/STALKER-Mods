@@ -1,13 +1,13 @@
 [up_sect_firsta_backpack]
-cost 		= 1500
-value		= +10
+cost 		= 2000
+value		= +5
 
-additional_inventory_weight 	= 10
-additional_inventory_weight2 	= 10
+additional_inventory_weight 	= 5
+additional_inventory_weight2 	= 5
 power_loss	                 	= -0.1
 
 [up_sect_firstc_backpack]
-cost 		= 3000
+cost 		= 4000
 value		= +10
 
 additional_inventory_weight 	= 10
@@ -15,11 +15,35 @@ additional_inventory_weight2 	= 10
 power_loss	                 	= -0.1
 
 [up_sect_firste_backpack]
-cost 		= 4500
+cost 		= 6000
+value		= +15
+
+additional_inventory_weight 	= 15
+additional_inventory_weight2 	= 15
+power_loss	                 	= -0.1
+
+[up_sect_secona_backpack]
+cost 		= 2000
+value		= +5
+
+additional_inventory_weight 	= 5
+additional_inventory_weight2 	= 5
+power_loss	                 	= -0.1
+
+[up_sect_seconc_backpack]
+cost 		= 4000
 value		= +10
 
 additional_inventory_weight 	= 10
 additional_inventory_weight2 	= 10
+power_loss	                 	= -0.1
+
+[up_sect_secone_backpack]
+cost 		= 6000
+value		= +15
+
+additional_inventory_weight 	= 15
+additional_inventory_weight2 	= 15
 power_loss	                 	= -0.1
 
 [up_firsta_backpack]
@@ -82,6 +106,66 @@ name                    = st_up_uti_b2_name
 description             = st_up_uti_b2_descr
 icon                    = ui_inGame2_upgrade_stalker_outfit_1
 
+[up_secona_backpack]
+scheme_index            = 0, 1
+known                   = 1
+effects                 = up_gr_seconcd_backpack
+section                 = up_sect_secona_backpack
+property                = prop_tonnage
+
+precondition_functor    = inventory_upgrades.precondition_functor_a
+precondition_parameter  = a & b
+
+effect_functor          = inventory_upgrades.effect_functor_a
+effect_parameter        = something_here
+
+prereq_functor          = inventory_upgrades.prereq_functor_a
+prereq_tooltip_functor  = inventory_upgrades.prereq_tooltip_functor_a
+prereq_params           =
+name                    = st_up_uti_b2_name
+description             = st_up_uti_b2_descr
+icon                    = ui_inGame2_upgrade_stalker_outfit_1
+
+[up_seconc_backpack]
+scheme_index            = 1, 1
+known                   = 1
+effects                 = up_gr_seconef_backpack
+section                 = up_sect_seconc_backpack
+property                = prop_tonnage
+
+precondition_functor    = inventory_upgrades.precondition_functor_a
+precondition_parameter  = a & b
+
+effect_functor          = inventory_upgrades.effect_functor_a
+effect_parameter        = something_here
+
+prereq_functor          = inventory_upgrades.prereq_functor_a
+prereq_tooltip_functor  = inventory_upgrades.prereq_tooltip_functor_a
+prereq_params           =
+name                    = st_up_uti_b2_name
+description             = st_up_uti_b2_descr
+icon                    = ui_inGame2_upgrade_stalker_outfit_1
+
+[up_secone_backpack]
+scheme_index            = 2, 1
+known                   = 1
+effects                 = 
+section                 = up_sect_secone_backpack
+property                = prop_tonnage
+
+precondition_functor    = inventory_upgrades.precondition_functor_a
+precondition_parameter  = a & b
+
+effect_functor          = inventory_upgrades.effect_functor_a
+effect_parameter        = something_here
+
+prereq_functor          = inventory_upgrades.prereq_functor_a
+prereq_tooltip_functor  = inventory_upgrades.prereq_tooltip_functor_a
+prereq_params           =
+name                    = st_up_uti_b2_name
+description             = st_up_uti_b2_descr
+icon                    = ui_inGame2_upgrade_stalker_outfit_1
+
 [up_gr_firstab_backpack]
 elements                        = up_firsta_backpack
 
@@ -90,3 +174,12 @@ elements                        = up_firstc_backpack
 
 [up_gr_firstef_backpack]
 elements                        = up_firste_backpack
+
+[up_gr_seconab_backpack]
+elements                        = up_secona_backpack
+
+[up_gr_seconcd_backpack]
+elements                        = up_seconc_backpack
+
+[up_gr_seconef_backpack]
+elements                        = up_secone_backpack
