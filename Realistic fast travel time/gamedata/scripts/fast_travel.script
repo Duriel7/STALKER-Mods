@@ -1,0 +1,208 @@
+------------------------------
+-- Fast Travel system
+-- author: Alundaio
+------------------------------
+local enabled = false 			-- change under settings in plugins\faction_quick_travel.ltx
+local sound_obj_travel = sound_object([[anomaly\teleport_work_1]])
+quick_travel_smarts = nil
+
+local function map_spot_menu_add_property(property_ui,id,level_name)
+	local se_obj = alife_object(id)
+	if not (se_obj) then 
+		return 
+	end
+	
+	if (enabled and se_obj:clsid() == clsid.smart_terrain and quick_travel_smarts[se_obj:name()]) then 
+		property_ui:AddItem(game.translate_string("st_pda_fast_travel"))
+	end
+end 
+
+local belted_arts = {}
+local sysini = system_ini()
+
+local function map_spot_menu_property_clicked(property_ui,id,level_name,prop)
+	if (prop == game.translate_string("st_pda_fast_travel")) then 
+		local se_obj = alife_object(id)
+		if not (se_obj) then 
+			return 
+		end
+		
+-- �������� �� ������� ����
+		local art = nil
+			
+		local function calca(actor, item)
+			if item:section() == "af_agimlet" or item:section() == "af_compass" then
+				if (art == nil or item:condition() > art:condition()) or item:condition() >= 0.05 then -- Created by Mr. DickSon 24.10.2024 (fuck off broke)
+					art = item
+				end
+			end
+		end
+		
+		db.actor:iterate_inventory(calca, db.actor)
+		
+        if art == nil and level_name ~= level.name() then
+			get_hud():HidePdaMenu()
+			SetHudMsg(game.translate_string("st_artefact_needed"),4) 
+			return 
+		end		
+
+		if art ~= nil and art:condition() < 0.05 and level_name ~= level.name() then
+			get_hud():HidePdaMenu()
+			SetHudMsg(game.translate_string("st_artefact_broken"),4) 
+			return 
+		end		
+		
+		-- Prevent fast travel if in combat 
+		if not (is_empty(xr_combat_ignore.fighting_with_actor_npcs)) then 
+			get_hud():HidePdaMenu()
+			SetHudMsg(game.translate_string("st_travel_event"),4)
+			return 
+		end 
+		
+		local val = 0
+		
+		for art_id,active in pairs(belted_arts) do
+			if (active) then
+				local arte = level.object_by_id(art_id)
+				if not (arte and db.actor:is_on_belt(arte)) then
+					belted_arts[art_id] = nil
+				else
+					val = val + (sysini:r_float_ex(arte:section(),"additional_inventory_weight") or 0)
+				end
+			end
+		end
+		
+		-- Prevent fast travel while overloaded 
+		local backpack = db.actor:item_in_slot(13)
+		local suit = db.actor:item_in_slot(7)
+		local diff = db.actor:get_total_weight() - db.actor:get_actor_max_walk_weight() - (suit and suit:get_additional_max_weight() or 0) - (backpack and backpack:get_additional_max_weight() or 0) - val
+		if diff > 0 then
+			get_hud():HidePdaMenu()
+			SetHudMsg(game.translate_string("st_travel_overloaded"),4)
+			return
+		end
+		
+		-- Prevent fast travel if bleeding and/or iradiated.
+		local bleeding = db.actor.bleeding > 0
+		local radiation = db.actor.radiation > 0
+		if (bleeding or radiation) then
+			if (bleeding and radiation) then
+				SetHudMsg(game.translate_string("st_sleep_bleeding_irradiated"),5)
+			elseif (bleeding) then
+				SetHudMsg(game.translate_string("st_sleep_bleeding"),4)
+			elseif (radiation) then
+				SetHudMsg(game.translate_string("st_sleep_irradiated"),4)
+			end
+			get_hud():HidePdaMenu()
+			return
+		end
+		
+		-- Prevent fast travel if an emission or psi-storm currently ongoing.
+		if (xr_conditions.surge_started() or psi_storm_manager.is_started() or surge_manager.is_presurge_active()) then	
+			SetHudMsg(game.translate_string("st_travel_emission"),4)
+			get_hud():HidePdaMenu()
+			return
+		end
+		
+		-- New formula for distance calculation, commented the previous for history
+		--local dist = se_obj.online and db.actor:position():distance_to(se_obj.position) or 1000
+		-- Changed checked object to existing object independently of online status
+		-- Changed distance to 500 instead of 1000 if object doesn't exist
+		local dist = se_obj and db.actor:position():distance_to(se_obj.position) or 500
+		if (dist <= 50) then 
+			SetHudMsg(game.translate_string("st_travel_already_here"),4)
+			get_hud():HidePdaMenu()
+			return
+		end
+	
+		-- New formula for travel time calculation, commented the previous for history
+		--level.change_game_time(0,math.floor(dist/1000)+math.random(0,2),math.random(1,59))
+		-- New variables to calculate how much time player character has to travel based on distance and random factor
+		-- Minutes calculated: takes 2 minutes per 100 meters + random between 2 and 5 minutes to account for random events during travel
+		local calculated_minutes = math.floor(dist / 50) + math.random(2, 5)
+		-- Hours and minutes calculated directly from the calculated minutes
+		local hours = math.floor(calculated_minutes / 60)
+		local minutes = calculated_minutes % 60
+		-- Applying the new variables
+		level.change_game_time(0,hours,minutes)
+		
+		surge_manager.get_surge_manager().time_forwarded = true
+		psi_storm_manager.get_psi_storm_manager().time_forwarded = true
+		
+		level_weathers.get_weather_manager():forced_weather_change()	
+		
+		if (level_name == level.name()) then 
+			level.add_pp_effector("fast_change_level.ppe",49629,false)
+			-- sound_obj_travel:play(db.actor,0,sound_object.s2d)
+			get_hud():HidePdaMenu()
+			db.actor:set_actor_position(se_obj.position)
+		else
+			art:set_condition(art:condition() - 0.05)
+			ChangeLevel(se_obj.position,se_obj.m_level_vertex_id,se_obj.m_game_vertex_id,vector():set(0,0,0),true)
+			-- level.add_pp_effector("teleport.ppe",23157,false)
+			-- sound_obj_travel:play(db.actor,0,sound_object.s2d)
+			get_hud():HidePdaMenu()
+		end
+	end
+end
+
+function opt_menu_on_init(menu)
+	menu.gameplay_options["fast_travel"] = {hint="ui_hint_fast_travel", default=true, 	debug_only=false, 	typ="check", on_accept=function(handler,optMgr,ctrl)
+	enabled = ctrl:GetCheck()
+	end}	
+end
+
+local function on_game_load()
+	local pini = ini_file("plugins\\faction_quick_travel.ltx")
+	-- enabled = pini:r_bool_ex("settings","enable",false)
+	enabled = axr_main.config:r_bool_ex("mm_options","enable_fast_travel", true)	
+
+	if not (enabled) then 
+		return 
+	end
+
+	local faction = character_community(db.actor):sub(7)
+	quick_travel_smarts = alun_utils.collect_section(pini,faction,true)
+	
+	if not (is_empty(quick_travel_smarts)) then
+		local sim = alife()
+		for i=1,65534 do 
+			local smart = sim:object(i)
+			if (smart and smart:clsid() == clsid.smart_terrain and quick_travel_smarts[smart:name()]) then
+				if (xr_statistic.actor_statistic.smart_terrain_visited[smart:name()]) then
+					if (level.map_has_object_spot(i, "fast_travel") == 0) then 
+						level.map_add_object_spot(i, "fast_travel", "st_pda_fast_travel")
+					end
+				end
+			end
+		end
+	end
+end
+
+function actor_on_item_drop(art)
+	if not IsArtefact(art) then
+		return
+	end
+	local art_id = art:id()
+	for k,v in pairs(belted_arts) do
+		if k == art_id then
+			belted_arts[k] = nil
+			return
+		end
+	end
+end
+
+function actor_item_to_belt(item)
+	if IsArtefact(item) then
+		belted_arts[item:id()] = true
+	end
+end
+
+function on_game_start()
+	RegisterScriptCallback("map_spot_menu_add_property",map_spot_menu_add_property)
+	RegisterScriptCallback("map_spot_menu_property_clicked",map_spot_menu_property_clicked)
+	RegisterScriptCallback("on_game_load",on_game_load)
+	RegisterScriptCallback("actor_on_item_drop",actor_on_item_drop)
+	RegisterScriptCallback("actor_item_to_belt",actor_item_to_belt)
+	RegisterScriptCallback("opt_menu_on_init",opt_menu_on_init)
+end
