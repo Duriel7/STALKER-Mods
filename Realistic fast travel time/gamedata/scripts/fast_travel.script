@@ -28,7 +28,7 @@ local function map_spot_menu_property_clicked(property_ui,id,level_name,prop)
 		end
 		
 -- �������� �� ������� ����
-		local art = nil
+		--[[local art = nil
 			
 		local function calca(actor, item)
 			if item:section() == "af_agimlet" or item:section() == "af_compass" then
@@ -50,7 +50,7 @@ local function map_spot_menu_property_clicked(property_ui,id,level_name,prop)
 			get_hud():HidePdaMenu()
 			SetHudMsg(game.translate_string("st_artefact_broken"),4) 
 			return 
-		end		
+		end	]]
 		
 		-- Prevent fast travel if in combat 
 		if not (is_empty(xr_combat_ignore.fighting_with_actor_npcs)) then 
@@ -137,7 +137,7 @@ local function map_spot_menu_property_clicked(property_ui,id,level_name,prop)
 			get_hud():HidePdaMenu()
 			db.actor:set_actor_position(se_obj.position)
 		else
-			art:set_condition(art:condition() - 0.05)
+			--art:set_condition(art:condition() - 0.05)
 			ChangeLevel(se_obj.position,se_obj.m_level_vertex_id,se_obj.m_game_vertex_id,vector():set(0,0,0),true)
 			-- level.add_pp_effector("teleport.ppe",23157,false)
 			-- sound_obj_travel:play(db.actor,0,sound_object.s2d)
